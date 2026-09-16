@@ -9,4 +9,3 @@ Android Developers. (n.d.). *Navigation with Compose*. Google. https://developer
 Android Developers. (n.d.). *Material Design 3 in Compose*. Google. https://developer.android.com/develop/ui/compose/designsystems/material3
 
 Kotlin Foundation. (n.d.). *Kotlin documentation*. https://kotlinlang.org/docs/home.html
-

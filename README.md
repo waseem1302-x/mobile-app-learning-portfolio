@@ -100,4 +100,3 @@ The Unit 3 screenshot records the final pathway while it was at 75%. The later d
 ## References
 
 Full APA-style references are available in [References/References.md](References/References.md).
-
