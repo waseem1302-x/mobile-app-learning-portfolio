@@ -3,7 +3,7 @@
 > **CDE2313 - Mobile Application Development**
 > Assessment 1: Lab Exercises | Individual GitHub Learning Portfolio (15%)
 
-This repository is an evidence-led portfolio of my work across the first four units of Google's **Android Basics with Compose** course. It brings together verified pathway badges, unit-completion screenshots, selected Kotlin and Jetpack Compose implementations, technical learning notes, analysis prompts, reflection material, references, and Git history in one reviewer-friendly structure.
+This repository is an evidence-led portfolio of my work across the first four units of Google's **Android Basics with Compose** course. It brings together verified pathway badges, unit-completion screenshots, four runnable Kotlin and Jetpack Compose projects, technical learning notes, analysis prompts, reflection material, references, and Git history in one reviewer-friendly structure.
 
 ## Portfolio at a glance
 
@@ -74,26 +74,26 @@ The portfolio begins with Kotlin syntax, variables, functions, Android Studio se
 
 ### 2. Declarative UI and state
 
-Module 2 moves from language fundamentals to declarative UI. In Compose, the visible interface is described by composable functions and updated in response to state changes. This reduces direct view mutation, but it also makes state ownership and event flow important design decisions.
+Module 2 moves from language fundamentals to declarative UI. Its interaction lab implements a dice roller and tip calculator with button events, validated numeric input, `rememberSaveable` state, derived values, and unit/UI test coverage.
 
 ### 3. Data-driven lists and Material Design
 
-Module 3 extends the UI model to collections and scrollable content. Lazy list components are suited to larger data sets because visible items are composed as needed. Material theming centralizes visual decisions, while animation and accessibility must support usability rather than act as decoration alone.
+Module 3 extends the UI model to collections and scrollable content. Its learning-card app uses a typed data model, stable lazy-list keys, Material 3 theming, animated expansion, dark-mode colors, and meaningful accessibility semantics.
 
 ### 4. Architecture, navigation, and adaptive layouts
 
-Module 4 connects UI work to application structure. Hoisted UI state and ViewModel concepts support predictable data flow; navigation separates destinations and back-stack behaviour; adaptive layouts allow the same information architecture to respond to different window sizes.
+Module 4 connects UI work to application structure. Its course navigator uses a `ViewModel`, immutable `StateFlow`, Navigation Compose routes and arguments, compact single-pane navigation, and an expanded list-detail layout at wider window sizes.
 
 ## Source-code evidence
 
-The repository clearly distinguishes complete projects from focused code samples so that the evidence is accurate and reproducible.
+Each module contains a standalone Gradle project that can be opened, built, and tested independently.
 
 | Module | Included implementation | Scope |
 |---|---|---|
 | 1 | [`FirstAndroidPortfolioApp`](Module-1-Android-Basics/Source-Code/FirstAndroidPortfolioApp/) | Complete Gradle Android project with wrapper, app module, resources, theme, unit test, and instrumented test |
-| 2 | [`ComposePortfolioDemo/MainActivity.kt`](Module-2-Jetpack-Compose/Source-Code/ComposePortfolioDemo/MainActivity.kt) | Selected Compose activity and composable retained from the learning work |
-| 3 | [`Source-Code/README.md`](Module-3-Lists-Material-Design/Source-Code/README.md) | Transparent record that no separate local Android Studio project export was available |
-| 4 | [`NavigationStateDemo/MainActivity.kt`](Module-4-Navigation-App-Architecture/Source-Code/NavigationStateDemo/MainActivity.kt) | Selected Compose state sample; pathway completion is independently supported by badge evidence |
+| 2 | [`ComposeInteractionLab`](Module-2-Jetpack-Compose/Source-Code/ComposeInteractionLab/) | Runnable dice roller and tip calculator demonstrating events, input, state, recomposition, and tests |
+| 3 | [`LearningCardsApp`](Module-3-Lists-Material-Design/Source-Code/LearningCardsApp/) | Runnable lazy-list app with a data model, Material theme, animation, semantics, and tests |
+| 4 | [`CourseNavigatorApp`](Module-4-Navigation-App-Architecture/Source-Code/CourseNavigatorApp/) | Runnable multi-screen app using ViewModel, StateFlow, Navigation Compose, adaptive layout, and tests |
 
 Machine-specific files, generated build outputs, IDE caches, and local SDK paths are intentionally excluded through [`.gitignore`](.gitignore).
 
@@ -106,7 +106,7 @@ This table is a navigation aid, not a claim of marks. It shows where a reviewer 
 | Learning completion | 12 individual pathway screenshots, unit screenshots, consolidated badge dashboard, public developer profile |
 | Repository organization | Root index, consistent module folders, evidence directories, source-code directories, reflection, and references |
 | Technical discussion | Module READMEs and the four [`Analysis.md`](Module-1-Android-Basics/Analysis.md) files |
-| Code and implementation evidence | Complete Module 1 project plus selected Module 2 and Module 4 Kotlin samples |
+| Code and implementation evidence | Four complete Gradle Android projects with source, resources, local tests, UI tests, and reproducible build commands |
 | Reflection | [`Reflection/Reflection.md`](Reflection/Reflection.md) |
 | Version-control practice | Repository commit history and focused documentation/evidence commits |
 | Authenticity | Original Google Developer profile, individual badge pages, unit screenshots, and transparent source-scope notes |
@@ -123,41 +123,42 @@ mobile-app-learning-portfolio/
 │   ├── Analysis.md
 │   ├── Badge-Evidence/
 │   ├── Screenshots/
-│   └── Source-Code/
+│   └── Source-Code/FirstAndroidPortfolioApp/
 ├── Module-2-Jetpack-Compose/
 │   ├── README.md
 │   ├── Analysis.md
 │   ├── Badge-Evidence/
 │   ├── Screenshots/
-│   └── Source-Code/
+│   └── Source-Code/ComposeInteractionLab/
 ├── Module-3-Lists-Material-Design/
 │   ├── README.md
 │   ├── Analysis.md
 │   ├── Badge-Evidence/
 │   ├── Screenshots/
-│   └── Source-Code/
+│   └── Source-Code/LearningCardsApp/
 ├── Module-4-Navigation-App-Architecture/
 │   ├── README.md
 │   ├── Analysis.md
 │   ├── Badge-Evidence/
 │   ├── Screenshots/
-│   └── Source-Code/
+│   └── Source-Code/CourseNavigatorApp/
 ├── Reflection/
 │   └── Reflection.md
 └── References/
     └── References.md
 ```
 
-## Reproducing the included Android project
+## Building and running the Android projects
 
-The complete project in Module 1 can be opened directly in Android Studio. From a configured command line, its local unit tests can also be run with:
+Open any project folder listed in the source-code table directly in Android Studio and allow Gradle sync to finish. Select a USB-debugging-enabled Android device, then choose **Run app**. Each project can also be verified from a configured PowerShell terminal:
 
 ```powershell
-cd Module-1-Android-Basics/Source-Code/FirstAndroidPortfolioApp
+cd <project-folder>
 .\gradlew.bat testDebugUnitTest
+.\gradlew.bat assembleDebug assembleDebugAndroidTest
 ```
 
-Android Studio's bundled JDK and a locally installed Android SDK are required. A `local.properties` file is deliberately not committed because it contains a machine-specific SDK path.
+Android Studio's bundled JDK and a locally installed Android SDK are required. A `local.properties` file is deliberately not committed because it contains a machine-specific SDK path. Device screenshots should be captured only from a genuine app run; none of the learning or app evidence in this repository is synthetically generated.
 
 ## Reflection and academic integrity
 

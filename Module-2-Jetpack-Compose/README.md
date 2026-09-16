@@ -36,23 +36,20 @@ The [Unit 2 completion screenshot](Screenshots/unit-2-completion.png) records al
 
 ## Included implementation
 
-[`Source-Code/ComposePortfolioDemo/MainActivity.kt`](Source-Code/ComposePortfolioDemo/MainActivity.kt) is a selected implementation retained from this module. It contains:
+[`Source-Code/ComposeInteractionLab`](Source-Code/ComposeInteractionLab/) is a complete standalone Gradle project that turns the unit concepts into two working exercises:
 
-- a `ComponentActivity` platform entry point;
-- a `setContent` Compose boundary; and
-- a small reusable `PortfolioGreeting` composable.
+- a dice roller driven by a button event and saved Compose state;
+- a tip calculator with decimal input, percentage control, a round-up switch, and derived formatted output;
+- a pure `calculateTip` function with boundary and rounding unit tests; and
+- a Compose UI test that checks both exercises are present.
 
-```kotlin
-setContent { PortfolioGreeting() }
-```
-
-The file is a focused source sample rather than a complete standalone Gradle project. The module's learning completion is independently documented by the three individual badge screenshots and the unit-level completion screenshot.
+The screen deliberately keeps state near the component that owns it. Calculation logic is kept outside the composable so it can be tested without an Android device.
 
 ## Technical synthesis
 
 Compose uses a declarative model: code states what the UI should display for the current inputs, while the framework coordinates rendering and updates. This is different from an imperative approach where code locates views and mutates their properties step by step. Declarative UI tends to make small components easier to preview and combine, but it requires disciplined state ownership because unclear state placement can create duplicated data or unpredictable updates.
 
-The selected greeting sample demonstrates the smallest useful Compose boundary. The completed pathway evidence covers broader interactions—including button behaviour, text input, calculated state, and testing—that are not all reproduced in this single retained source file. Keeping that distinction explicit makes the portfolio evidence precise.
+The interaction lab demonstrates the declarative loop directly: an event updates observable state, Compose recomposes the affected content, and the screen displays the new value. `rememberSaveable` preserves small UI values across activity recreation, while the pure tip function keeps business logic deterministic and independently testable.
 
 ## Concepts and design decisions
 
@@ -68,7 +65,8 @@ The selected greeting sample demonstrates the smallest useful Compose boundary. 
 
 - [x] Three individual pathway screenshots
 - [x] Unit-level 100% completion screenshot
-- [x] Selected Kotlin/Compose source sample
+- [x] Complete runnable Kotlin/Compose project
+- [x] Unit and Compose UI tests
 - [x] Technical comparison of declarative UI, events, and state
 - [x] Separate [analysis notes](Analysis.md)
 

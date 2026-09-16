@@ -3,7 +3,7 @@
 > **Android Basics with Compose, Unit 3**
 > Kotlin collections, scalable lists, Material theming, animation, and accessibility
 
-[← Module 2](../Module-2-Jetpack-Compose/README.md) | [Portfolio home](../README.md) | [Analysis](Analysis.md) | [Badge evidence](Badge-Evidence/) | [Source note](Source-Code/README.md) | [Next module →](../Module-4-Navigation-App-Architecture/README.md)
+[← Module 2](../Module-2-Jetpack-Compose/README.md) | [Portfolio home](../README.md) | [Analysis](Analysis.md) | [Badge evidence](Badge-Evidence/) | [Source code](Source-Code/) | [Next module →](../Module-4-Navigation-App-Architecture/README.md)
 
 ## Module overview
 
@@ -49,9 +49,18 @@ Separating a data model from an item composable avoids repeated UI code and make
 
 A shared Material theme provides consistent design tokens and reduces one-off styling. Animation is strongest when it explains a meaningful transition; excessive motion can distract users and should respect reduced-motion and accessibility needs. Visual polish therefore depends on accessibility and semantic clarity, not only color or movement.
 
-## Evidence and source-code scope
+## Included implementation
 
-This module preserves all three individual pathway screenshots. As documented in [`Source-Code/README.md`](Source-Code/README.md), a separate local Android Studio project export for Unit 3 was not available in this portfolio checkout. The repository does not substitute unrelated code for the missing export; it records the limitation transparently and relies on the original pathway badges and consolidated developer profile for completion evidence.
+[`Source-Code/LearningCardsApp`](Source-Code/LearningCardsApp/) is a complete standalone Gradle project implementing the unit concepts as a scrollable study guide. It includes:
+
+- a typed six-item learning-topic data model with stable IDs;
+- a `LazyColumn` with stable keys and reusable Material cards;
+- animated expand/collapse details with saved per-card state;
+- custom Material 3 light and dark color schemes;
+- content descriptions and readable interaction labels; and
+- catalog unit tests plus a Compose expansion test.
+
+The colored accent, summary and details all come from the model, so repeated UI markup is not duplicated.
 
 ## Concepts reviewed
 
@@ -69,7 +78,8 @@ This module preserves all three individual pathway screenshots. As documented in
 - [x] Three individual pathway screenshots
 - [x] Consolidated public-profile badge evidence
 - [x] Detailed list, Material Design, animation, and accessibility discussion
-- [x] Transparent source-code availability note
+- [x] Complete runnable lazy-list and Material Design project
+- [x] Unit and Compose UI tests
 - [x] Separate [analysis notes](Analysis.md)
 
 ---

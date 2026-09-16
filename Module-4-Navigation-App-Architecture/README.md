@@ -37,14 +37,15 @@ The [Unit 4 completion screenshot](Screenshots/unit-4-completion.png) records al
 
 ## Included implementation
 
-[`Source-Code/NavigationStateDemo/MainActivity.kt`](Source-Code/NavigationStateDemo/MainActivity.kt) is a focused Compose state sample associated with this unit.
+[`Source-Code/CourseNavigatorApp`](Source-Code/CourseNavigatorApp/) is a complete standalone Gradle project implementing the unit concepts together:
 
-```kotlin
-var count by remember { mutableStateOf(0) }
-Text("Current state value: $count")
-```
+- an immutable `CourseUiState` exposed through `StateFlow` from a `ViewModel`;
+- a catalog kept separate from rendering code and covered by local unit tests;
+- Home, topic-list, and parameterized detail destinations using Navigation Compose;
+- compact single-pane behaviour for phones and an expanded list-detail layout at 700 dp or wider; and
+- a Compose navigation test that checks the start action opens the topic list.
 
-The sample demonstrates a composable observing locally remembered state. It does **not** by itself implement a multi-destination `NavHost` or a ViewModel; completion of those learning areas is documented through the original Architecture Components and Navigation in Jetpack Compose badge screenshots. This explicit scope prevents the sample from being presented as more complete than it is.
+Route arguments carry a small topic identifier; the destination resolves the current data from the catalog rather than receiving a mutable object.
 
 ## Technical synthesis
 
@@ -90,8 +91,9 @@ while adaptive layout decisions respond to available window size.
 
 - [x] Three individual pathway screenshots
 - [x] Unit-level 100% completion screenshot
-- [x] Selected Compose state source sample
-- [x] Clear distinction between sample-code scope and pathway completion
+- [x] Complete runnable navigation and architecture project
+- [x] ViewModel, StateFlow, route argument, and adaptive-layout implementation
+- [x] Unit and Compose UI tests
 - [x] Technical comparison of state ownership, navigation, and adaptive UI
 - [x] Separate [analysis notes](Analysis.md)
 
