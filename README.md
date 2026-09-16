@@ -111,20 +111,42 @@ This table is a navigation aid, not a claim of marks. It shows where a reviewer 
 | Version-control practice | Repository commit history and focused documentation/evidence commits |
 | Authenticity | Original Google Developer profile, individual badge pages, unit screenshots, and transparent source-scope notes |
 
-## Repository guide
+## Repository structure
 
-| Section | What it contains | Purpose |
-|---|---|---|
-| [`Assets`](Assets/) | Consolidated Google Developer Program dashboard | Provides an overall view of the earned badges |
-| [`Module-1-Android-Basics`](Module-1-Android-Basics/README.md) | Module guide, analysis, three badge screenshots, unit-completion screenshot, and complete Android project | Documents Kotlin, Android Studio, and basic Compose layout foundations |
-| [`Module-2-Jetpack-Compose`](Module-2-Jetpack-Compose/README.md) | Module guide, analysis, three badge screenshots, unit-completion screenshot, and selected Compose source | Documents Kotlin fundamentals, interaction, and state-driven UI |
-| [`Module-3-Lists-Material-Design`](Module-3-Lists-Material-Design/README.md) | Module guide, analysis, three badge screenshots, and source-availability note | Documents collections, lazy lists, Material Design, animation, and accessibility |
-| [`Module-4-Navigation-App-Architecture`](Module-4-Navigation-App-Architecture/README.md) | Module guide, analysis, three badge screenshots, unit-completion screenshot, and selected state sample | Documents architecture components, navigation, and adaptive layouts |
-| [`Reflection`](Reflection/Reflection.md) | Portfolio reflection and student reflection prompts | Keeps personal critical evaluation separate from technical evidence |
-| [`References`](References/References.md) | APA-style references to official Android and Kotlin resources | Records the learning sources used throughout the portfolio |
-| [`.gitignore`](.gitignore) | Rules for local SDK settings, IDE files, and generated outputs | Keeps the repository portable and focused on assessable work |
-
-Every module follows the same internal pattern—`README.md`, `Analysis.md`, `Badge-Evidence`, `Screenshots`, and `Source-Code`—so evidence can be located consistently without reading a terminal-style directory tree.
+```text
+mobile-app-learning-portfolio/
+├── README.md
+├── Assets/
+│   └── google-developer-profile-badges.png
+├── Module-1-Android-Basics/
+│   ├── README.md
+│   ├── Analysis.md
+│   ├── Badge-Evidence/
+│   ├── Screenshots/
+│   └── Source-Code/
+├── Module-2-Jetpack-Compose/
+│   ├── README.md
+│   ├── Analysis.md
+│   ├── Badge-Evidence/
+│   ├── Screenshots/
+│   └── Source-Code/
+├── Module-3-Lists-Material-Design/
+│   ├── README.md
+│   ├── Analysis.md
+│   ├── Badge-Evidence/
+│   ├── Screenshots/
+│   └── Source-Code/
+├── Module-4-Navigation-App-Architecture/
+│   ├── README.md
+│   ├── Analysis.md
+│   ├── Badge-Evidence/
+│   ├── Screenshots/
+│   └── Source-Code/
+├── Reflection/
+│   └── Reflection.md
+└── References/
+    └── References.md
+```
 
 ## Reproducing the included Android project
 
