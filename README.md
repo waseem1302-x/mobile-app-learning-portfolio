@@ -10,7 +10,7 @@ This repository is an evidence-led portfolio of my work across the first four un
 | Item | Details |
 |---|---|
 | Student | **Waseem Mushtaq** |
-| Programme | Bachelor in Data Science |
+| Programme | Bachelor in Computer Science |
 | Course | CDE2313 - Mobile Application Development |
 | Academic session | 2025/2026, Semester 3 |
 | Lecturer | Ts Mohd Zulkifli Mohd Zaki |
