@@ -9,7 +9,7 @@
 
 ## Evidence
 
-The screenshot in `Screenshots` records the final pathway in progress. The later Google Developer Program dashboard confirms the related **More Kotlin fundamentals**, **Build a scrollable list**, and **Add theme and animation** badges.
+The `Badge-Evidence` folder contains the individual screenshots for **More Kotlin fundamentals**, **Build a scrollable list**, and **Add theme and animation**. The later Google Developer Program dashboard consolidates the same achievements.
 
 ## Student analysis
 

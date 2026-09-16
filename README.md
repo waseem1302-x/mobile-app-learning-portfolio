@@ -27,8 +27,8 @@ This repository records my progress through the first four units of Android Basi
 |---|---|---|---|
 | [Module 1](Module-1-Android-Basics/) | Unit 1: Your first Android app | Unit completion and three pathway badges | Completed |
 | [Module 2](Module-2-Jetpack-Compose/) | Unit 2: Building app UI | Three pathways shown at 100% | Completed |
-| [Module 3](Module-3-Lists-Material-Design/) | Unit 3: Display lists and use Material Design | Progress capture plus final badges on developer profile | Completed |
-| [Module 4](Module-4-Navigation-App-Architecture/) | Unit 4: Navigation and app architecture | Three pathways shown at 100% | Completed |
+| [Module 3](Module-3-Lists-Material-Design/) | Unit 3: Display lists and use Material Design | Three individual pathway badge screenshots | Completed |
+| [Module 4](Module-4-Navigation-App-Architecture/) | Unit 4: Navigation and app architecture | Unit completion plus three pathway screenshots | Completed |
 
 ## Badge achievement summary
 
@@ -95,7 +95,7 @@ This portfolio documents my progression from Kotlin and Android Studio fundament
 
 ## Evidence note
 
-The Unit 3 screenshot records the final pathway while it was at 75%. The later developer-profile dashboard includes the **Build a scrollable list**, **More Kotlin fundamentals**, and **Add theme and animation** badges, providing subsequent completion evidence. Unit 4 uses the later screenshot where all three pathways display 100%.
+The repository contains individual pathway screenshots for all twelve Android badges listed above. Unit-level screenshots provide additional completion evidence, while the developer-profile dashboard consolidates the awarded badges in one view.
 
 ## References
 

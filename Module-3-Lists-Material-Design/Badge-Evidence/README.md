@@ -1,3 +1,9 @@
 # Badge evidence
 
-The consolidated [Google Developer Program badge dashboard](../../Assets/google-developer-profile-badges.png) includes the More Kotlin fundamentals, Build a scrollable list, and Add theme and animation achievements.
+This folder contains individual evidence for:
+
+- More Kotlin fundamentals
+- Build a scrollable list
+- Add theme and animation
+
+The consolidated [Google Developer Program badge dashboard](../../Assets/google-developer-profile-badges.png) displays the same achievements on the student profile.
