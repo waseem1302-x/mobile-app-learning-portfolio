@@ -1,13 +1,51 @@
 # Reflection
 
-This portfolio documents my progression through Kotlin fundamentals, Android Studio, Jetpack Compose, Material Design, state, navigation, architecture components, and adaptive layouts.
+This portfolio documents my progression from creating a basic Android application to building interactive, themed, tested, and adaptive Jetpack Compose applications. The four source-code folders show how my understanding developed step by step: first learning the Android project structure, then learning Compose interaction and state, then creating richer list-based Material interfaces, and finally applying navigation and architecture patterns to a multi-screen application.
 
-## Student reflection
+## Module 1: Android Basics
 
-This section is reserved for the student's own critical reflection on:
+The `Module-1-Android-Basics/Source-Code/FirstAndroidPortfolioApp` project taught me the essential structure of an Android application and gave me a starting point for working with Jetpack Compose. In `MainActivity`, I learned how an Android activity is created, how `onCreate` is used as the entry point, and how `setContent` places a Compose interface on the screen. The `Greeting` composable also showed me how to create a reusable UI function that accepts data such as a name and a `Modifier`.
 
-- the most important learning outcomes;
-- challenges encountered and how they were addressed;
-- technical decisions and their alternatives;
-- strengths and limitations of the implemented approaches; and
-- improvements that would be made in future work.
+The source code also introduced me to important Android development practices. The app uses `Scaffold` and padding to organise the screen, a theme wrapper to apply Material styling, and a `@Preview` function to inspect the interface during development. I learned that theming can support light mode, dark mode, and dynamic colours on newer Android versions. The unit and instrumented tests helped me understand the difference between testing Kotlin logic on the development machine and testing Android-specific behaviour in an Android environment.
+
+This module was simple compared with the later projects, but it was important because it helped me understand the relationship between the activity, composable functions, themes, modifiers, previews, and tests. One limitation is that the app only displays static text, so it does not yet demonstrate user interaction or changing state. However, it provided a clear foundation for the more interactive applications that followed.
+
+## Module 2: Jetpack Compose
+
+The `Module-2-Jetpack-Compose/Source-Code` projects taught me how to build interactive user interfaces using Compose. The `ComposePortfolioDemo` demonstrates the basic idea of replacing traditional XML-based layouts with composable functions. The larger `ComposeInteractionLab` helped me understand how user actions change observable state and cause the interface to recompose.
+
+The dice roller taught me how to connect a button event to a state update using `rememberSaveable`. The tip calculator was more challenging because it required text input, validation, percentage selection, optional rounding, formatting, and calculation logic. The functions `parseAmountInput` and `calculateTip` showed me why input should be validated before it is used and why calculation logic is easier to understand and test when it is separated from the UI. Supporting both dot and comma decimal separators also made me think more carefully about real user input rather than only ideal input.
+
+I also learned how a Material 3 theme can provide separate light and dark colour schemes and how Compose UI tests can check that important content is displayed. The unit tests for the tip calculator were especially useful because they covered valid input, malformed input, rounding, and non-positive values. This module improved my understanding of state-driven UI: instead of manually changing individual views, I change the state and allow Compose to update the screen.
+
+A strength of this implementation is that it provides immediate feedback and includes both unit and UI tests. A limitation is that the interaction lab keeps most state inside composable functions, which would become less suitable as an application grows. This prepared me to use more structured state and architecture in Module 4.
+
+## Module 3: Lists and Material Design
+
+The `Module-3-Lists-Material-Design/Source-Code/LearningCardsApp` project taught me how to display structured data and create a more complete Material Design interface. The `LearningTopic` data class represents each learning topic with an ID, title, summary, detail, and accent colour. Keeping the content in a data model and generating it through `learningTopics()` made the UI more maintainable than writing every card individually.
+
+I learned how to use `LazyColumn` to display a scrollable collection efficiently and how to provide stable keys for list items. Each topic is displayed through a reusable `LearningTopicCard`, which helped me practise component-based design. The cards use `rememberSaveable` to preserve their expanded state, `AnimatedVisibility` and `animateContentSize` to make changes clearer to the user, and Material typography and colours to create visual consistency.
+
+This module also expanded my understanding of accessibility and testing. The buttons use meaningful content descriptions, and the test checks that a card can be expanded and that its detailed content becomes visible. The catalogue tests verify that the list has the expected number of unique entries and that each entry contains complete display content. These examples taught me that a good interface is not only visually appealing; it should also be understandable to assistive technologies and protected by tests.
+
+The main challenge was coordinating list rendering, per-item state, animation, semantics, and testing without making the screen difficult to manage. Breaking the screen into data models and composable components helped address this. The implementation is effective for a small learning catalogue, although a larger application would benefit from a repository or ViewModel so that data and state are not held directly in the UI layer.
+
+## Module 4: Navigation and App Architecture
+
+The `Module-4-Navigation-App-Architecture/Source-Code` projects taught me how to organise a multi-screen application and separate UI rendering from application state. The `NavigationStateDemo` provided a small example of Compose state, while the `CourseNavigatorApp` brought together a course catalogue, navigation routes, a ViewModel, `StateFlow`, route arguments, and adaptive layouts.
+
+The `CourseCatalog` and `CourseTopic` classes showed me how application data can be represented independently of the screen. The `CourseViewModel` owns the selected topic state and exposes it as a read-only `StateFlow`. This taught me the value of unidirectional data flow: the UI displays state and sends user events back to the ViewModel, while the ViewModel validates and updates the state. Invalid topic IDs are ignored, which makes the state handling safer.
+
+I also learned how `NavHost` and a `NavController` define destinations and move the user between the home screen, topic list, and topic detail screen. Passing a topic ID as a typed navigation argument helped me understand how one screen can open another while identifying the content to display. The app also uses `BoxWithConstraints` to choose between a compact list-and-detail flow and an expanded two-pane layout. This showed me that adaptive design is more than resizing components; it can change the structure of the user experience to make better use of available space.
+
+The tests in this module were valuable because they cover catalogue lookup, invalid IDs, ViewModel state changes, adaptive-layout breakpoints, and the user journey from the home screen to the topic list. The architecture is stronger than in the earlier modules because state and navigation responsibilities are more clearly separated. A limitation is that the catalogue is still in-memory and static, so a production application would need persistent or remote data, loading states, and error handling. I would also consider using more centralised route definitions and adding additional navigation and accessibility tests as the app grows.
+
+## Overall reflection
+
+Across the four modules, I progressed from understanding the basic Android and Compose project structure to developing an application with interaction, reusable components, accessibility considerations, automated tests, navigation, state management, and adaptive layouts. Each module built on the previous one. Module 1 established the foundation, Module 2 showed me how state and events create interactive interfaces, Module 3 taught me how to manage collections and improve usability, and Module 4 demonstrated how to organise a larger application using architecture and navigation patterns.
+
+The most important learning outcome was understanding that a Compose interface is a function of its state. This changed the way I think about UI development: rather than directly manipulating views, I model the data and state, respond to events, and let Compose recompose the appropriate parts of the screen. I also learned that maintainable Android development requires more than making a screen look correct. The source code should be divided into meaningful components, input should be validated, accessibility should be considered, and important behaviour should be tested.
+
+The main challenges were becoming comfortable with state ownership, preserving state across configuration changes, validating user input, and coordinating navigation with screen-specific data. I addressed these challenges by using `rememberSaveable` for local UI state, pure functions for calculations, data classes for structured content, ViewModel and `StateFlow` for screen state, and Compose tests for user-visible behaviour. These solutions were appropriate for the scale of the projects, although future work would require stronger separation of concerns, persistent data, dependency injection, and more comprehensive error handling.
+
+Looking back, my strongest improvement is the move from a static greeting screen to a tested adaptive application. My main area for improvement is designing for larger and more realistic applications from the beginning. In future projects, I would add a repository layer, support loading and error states, improve automated test coverage, and test the applications on different screen sizes and accessibility settings. Overall, this portfolio demonstrates both technical progress and a clearer understanding of how thoughtful architecture, usability, and testing contribute to the quality of an Android application.
